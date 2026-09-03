@@ -3,8 +3,149 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="style.css">
-  <title>Programação e Jogos</title>
+  <title>Programação e Jogos - Cemitério</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', Arial, sans-serif;
+      background: #0d0d0d;
+      color: #e0e0e0;
+      line-height: 1.6;
+    }
+
+    header {
+      background: #1a1a1a;
+      padding: 20px;
+      text-align: center;
+      border-bottom: 2px solid #4a0080;
+    }
+
+    header h1 {
+      color: #bb86fc;
+      margin-bottom: 15px;
+      font-size: 1.8rem;
+    }
+
+    nav a {
+      color: #ccc;
+      text-decoration: none;
+      margin: 0 15px;
+      font-weight: 500;
+      transition: color 0.3s;
+    }
+
+    nav a:hover {
+      color: #bb86fc;
+    }
+
+    main {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 30px 20px;
+    }
+
+    section {
+      margin-bottom: 50px;
+    }
+
+    h2 {
+      color: #bb86fc;
+      margin-bottom: 20px;
+      border-left: 4px solid #bb86fc;
+      padding-left: 12px;
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 20px;
+    }
+
+    .card {
+      background: #1e1e1e;
+      border: 1px solid #333;
+      border-radius: 10px;
+      padding: 20px;
+      transition: transform 0.2s, border-color 0.2s;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+      border-color: #bb86fc;
+    }
+
+    .card h3 {
+      color: #cf9fff;
+      margin-bottom: 10px;
+    }
+
+    /* ===== ÁREA DO JOGO ===== */
+    .jogo {
+      background: #111;
+      border: 2px solid #4a0080;
+      border-radius: 12px;
+      padding: 25px;
+      text-align: center;
+    }
+
+    .jogo p {
+      margin-bottom: 15px;
+      color: #aaa;
+    }
+
+    #gameCanvas {
+      background: #0a0a12;
+      border: 3px solid #333;
+      border-radius: 8px;
+      display: block;
+      margin: 0 auto 20px;
+      max-width: 100%;
+      box-shadow: 0 0 30px rgba(100, 0, 150, 0.3);
+    }
+
+    .controles {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 30px;
+      flex-wrap: wrap;
+    }
+
+    #score {
+      font-size: 1.4rem;
+      color: #bb86fc;
+      font-weight: bold;
+    }
+
+    #startBtn {
+      background: #4a0080;
+      color: white;
+      border: none;
+      padding: 12px 28px;
+      font-size: 1rem;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    #startBtn:hover {
+      background: #6a00b0;
+    }
+
+    footer {
+      text-align: center;
+      padding: 25px;
+      background: #1a1a1a;
+      color: #777;
+      border-top: 1px solid #333;
+      margin-top: 40px;
+    }
+  </style>
 </head>
 <body>
 
@@ -14,7 +155,7 @@
       <a href="#">Início</a>
       <a href="#">Linguagens</a>
       <a href="#">Motores de Jogo</a>
-      <a href="#">Projetos</a>
+      <a href="#jogo">Jogar</a>
     </nav>
   </header>
 
@@ -29,23 +170,19 @@
 
     <section class="linguagens">
       <h2>Linguagens mais usadas em jogos</h2>
-
       <div class="cards">
         <article class="card">
           <h3>C#</h3>
           <p>Principal linguagem do Unity. Muito usada em jogos 2D e 3D.</p>
         </article>
-
         <article class="card">
           <h3>C++</h3>
           <p>Linguagem poderosa usada no Unreal Engine e em jogos de alto desempenho.</p>
         </article>
-
         <article class="card">
           <h3>GDScript / C#</h3>
           <p>Usadas no Godot, um motor de jogos gratuito e open source.</p>
         </article>
-
         <article class="card">
           <h3>JavaScript</h3>
           <p>Muito usada em jogos web (HTML5) e com frameworks como Phaser.</p>
@@ -55,27 +192,36 @@
 
     <section class="motores">
       <h2>Principais Motores de Jogos</h2>
-
       <div class="cards">
         <article class="card">
           <h3>Unity</h3>
           <p>Um dos motores mais populares do mundo. Ideal para iniciantes e profissionais.</p>
         </article>
-
         <article class="card">
           <h3>Unreal Engine</h3>
           <p>Conhecido por gráficos de alta qualidade e usado em jogos AAA.</p>
         </article>
-
         <article class="card">
           <h3>Godot</h3>
           <p>Totalmente gratuito e open source. Excelente para quem está começando.</p>
         </article>
-
         <article class="card">
           <h3>Construct / GameMaker</h3>
           <p>Ótimos para criar jogos 2D de forma mais visual (menos código).</p>
         </article>
+      </div>
+    </section>
+
+    <!-- ==================== JOGO ==================== -->
+    <section class="jogo" id="jogo">
+      <h2> Jogo: Salto no Cemitério</h2>
+      <p>Use a <strong>barra de espaço</strong> para pular sobre os túmulos. Não colida!</p>
+
+      <canvas id="gameCanvas" width="800" height="400"></canvas>
+
+      <div class="controles">
+        <div>Pontuação: <span id="score">0</span></div>
+        <button id="startBtn">Iniciar / Reiniciar</button>
       </div>
     </section>
   </main>
@@ -84,5 +230,217 @@
     Projeto feito pela Valquiria • Tema: Programação e Jogos
   </footer>
 
+  <script>
+    const canvas = document.getElementById('gameCanvas');
+    const ctx = canvas.getContext('2d');
+    const scoreEl = document.getElementById('score');
+    const startBtn = document.getElementById('startBtn');
+
+    // Variáveis do jogo
+    let gameRunning = false;
+    let score = 0;
+    let frame = 0;
+    let gravidade = 0.6;
+    let chao = canvas.height - 60;
+
+    // Jogador
+    const player = {
+      x: 100,
+      y: chao,
+      width: 40,
+      height: 50,
+      velY: 0,
+      pulando: false,
+      cor: '#e0e0e0'
+    };
+
+    // Array de túmulos
+    let tumulos = [];
+
+    // Função para criar túmulo
+    function criarTumulo() {
+      const altura = 50 + Math.random() * 40;
+      tumulos.push({
+        x: canvas.width,
+        y: chao - altura,
+        width: 45,
+        height: altura,
+        passou: false
+      });
+    }
+
+    // Desenhar o fundo dark do cemitério
+    function desenharFundo() {
+      // Céu noturno
+      ctx.fillStyle = '#0a0a12';
+      ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+      // Estrelas
+      ctx.fillStyle = '#ffffff';
+      for (let i = 0; i < 40; i++) {
+        const x = (i * 37 + frame * 0.1) % canvas.width;
+        const y = (i * 23) % (canvas.height - 80);
+        ctx.beginPath();
+        ctx.arc(x, y, 1, 0, Math.PI * 2);
+        ctx.fill();
+      }
+
+      // Chao do cemitério
+      ctx.fillStyle = '#1a1a1a';
+      ctx.fillRect(0, chao, canvas.width, canvas.height - chao);
+
+      // Grama escura
+      ctx.fillStyle = '#0d1f0d';
+      ctx.fillRect(0, chao, canvas.width, 8);
+    }
+
+    // Desenhar o jogador (fantasma simples)
+    function desenharPlayer() {
+      ctx.fillStyle = player.cor;
+      
+      // Corpo
+      ctx.beginPath();
+      ctx.ellipse(player.x + 20, player.y + 25, 18, 25, 0, 0, Math.PI * 2);
+      ctx.fill();
+
+      // Olhos
+      ctx.fillStyle = '#111';
+      ctx.beginPath();
+      ctx.arc(player.x + 13, player.y + 18, 4, 0, Math.PI * 2);
+      ctx.arc(player.x + 27, player.y + 18, 4, 0, Math.PI * 2);
+      ctx.fill();
+    }
+
+    // Desenhar túmulos
+    function desenharTumulos() {
+      tumulos.forEach(t => {
+        // Base do túmulo
+        ctx.fillStyle = '#555';
+        ctx.fillRect(t.x, t.y, t.width, t.height);
+
+        // Parte de cima arredondada
+        ctx.beginPath();
+        ctx.arc(t.x + t.width / 2, t.y, t.width / 2, Math.PI, 0);
+        ctx.fill();
+
+        // Cruz
+        ctx.fillStyle = '#888';
+        ctx.fillRect(t.x + t.width / 2 - 3, t.y - 25, 6, 25);
+        ctx.fillRect(t.x + t.width / 2 - 10, t.y - 18, 20, 6);
+      });
+    }
+
+    // Atualizar lógica
+    function atualizar() {
+      if (!gameRunning) return;
+
+      frame++;
+
+      // Gravidade e pulo
+      player.velY += gravidade;
+      player.y += player.velY;
+
+      if (player.y >= chao - player.height) {
+        player.y = chao - player.height;
+        player.velY = 0;
+        player.pulando = false;
+      }
+
+      // Criar túmulos periodicamente
+      if (frame % 90 === 0) {
+        criarTumulo();
+      }
+
+      // Mover túmulos
+      for (let i = tumulos.length - 1; i >= 0; i--) {
+        tumulos[i].x -= 5;
+
+        // Pontuação
+        if (!tumulos[i].passou && tumulos[i].x + tumulos[i].width < player.x) {
+          tumulos[i].passou = true;
+          score++;
+          scoreEl.textContent = score;
+        }
+
+        // Remover túmulos fora da tela
+        if (tumulos[i].x + tumulos[i].width < 0) {
+          tumulos.splice(i, 1);
+        }
+
+        // Colisão
+        if (
+          player.x < tumulos[i].x + tumulos[i].width &&
+          player.x + player.width > tumulos[i].x &&
+          player.y < tumulos[i].y + tumulos[i].height &&
+          player.y + player.height > tumulos[i].y
+        ) {
+          gameOver();
+        }
+      }
+    }
+
+    // Desenhar tudo
+    function desenhar() {
+      desenharFundo();
+      desenharTumulos();
+      desenharPlayer();
+
+      if (!gameRunning && score > 0) {
+        ctx.fillStyle = 'rgba(0, 0, 0, 0.7)';
+        ctx.fillRect(0, 0, canvas.width, canvas.height);
+        ctx.fillStyle = '#ff5555';
+        ctx.font = '40px Arial';
+        ctx.textAlign = 'center';
+        ctx.fillText('GAME OVER', canvas.width / 2, canvas.height / 2 - 20);
+        ctx.fillStyle = '#fff';
+        ctx.font = '22px Arial';
+        ctx.fillText('Pontuação: ' + score, canvas.width / 2, canvas.height / 2 + 20);
+      }
+    }
+
+    // Loop principal
+    function loop() {
+      atualizar();
+      desenhar();
+      requestAnimationFrame(loop);
+    }
+
+    // Game Over
+    function gameOver() {
+      gameRunning = false;
+    }
+
+    // Iniciar / Reiniciar
+    function iniciarJogo() {
+      gameRunning = true;
+      score = 0;
+      scoreEl.textContent = 0;
+      frame = 0;
+      tumulos = [];
+      player.y = chao - player.height;
+      player.velY = 0;
+      player.pulando = false;
+    }
+
+    // Controles
+    document.addEventListener('keydown', (e) => {
+      if (e.code === 'Space') {
+        e.preventDefault();
+        if (gameRunning && !player.pulando) {
+          player.velY = -13;
+          player.pulando = true;
+        }
+        // Se o jogo não estiver rodando, inicia com espaço também
+        if (!gameRunning) {
+          iniciarJogo();
+        }
+      }
+    });
+
+    startBtn.addEventListener('click', iniciarJogo);
+
+    // Inicia o loop
+    loop();
+  </script>
 </body>
 </html>
