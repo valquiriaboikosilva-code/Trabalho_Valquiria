@@ -1,276 +1,74 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Programação e Jogos</title>
-  <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
-
-    body {
-      font-family: 'Segoe UI', Arial, sans-serif;
-      background: #0d0d0d;
-      color: #e0e0e0;
-      line-height: 1.7;
-    }
-
-    header {
-      background: #1a1a1a;
-      padding: 25px 20px;
-      text-align: center;
-      border-bottom: 2px solid #4a0080;
-    }
-
-    header h1 {
-      color: #bb86fc;
-      margin-bottom: 15px;
-      font-size: 1.9rem;
-    }
-
-    nav a {
-      color: #ccc;
-      text-decoration: none;
-      margin: 0 14px;
-      font-weight: 500;
-      transition: color 0.3s;
-    }
-
-    nav a:hover {
-      color: #bb86fc;
-    }
-
-    main {
-      max-width: 1000px;
-      margin: 0 auto;
-      padding: 40px 20px;
-    }
-
-    section {
-      margin-bottom: 60px;
-    }
-
-    h2 {
-      color: #bb86fc;
-      margin-bottom: 18px;
-      border-left: 4px solid #bb86fc;
-      padding-left: 14px;
-      font-size: 1.5rem;
-    }
-
-    p {
-      color: #cfcfcf;
-      margin-bottom: 16px;
-    }
-
-    .cards {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 22px;
-    }
-
-    .card {
-      background: #1e1e1e;
-      border: 1px solid #333;
-      border-radius: 12px;
-      padding: 22px;
-      transition: transform 0.25s, border-color 0.25s;
-    }
-
-    .card:hover {
-      transform: translateY(-6px);
-      border-color: #bb86fc;
-    }
-
-    .card h3 {
-      color: #cf9fff;
-      margin-bottom: 10px;
-    }
-
-    .galeria {
-      background: #141414;
-      border: 1px solid #333;
-      border-radius: 14px;
-      padding: 30px 25px;
-    }
-
-    .imagens {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-      gap: 24px;
-      margin-top: 25px;
-    }
-
-    .imagens figure {
-      background: #1e1e1e;
-      border-radius: 12px;
-      overflow: hidden;
-      border: 1px solid #333;
-      transition: transform 0.25s;
-    }
-
-    .imagens figure:hover {
-      transform: translateY(-5px);
-    }
-
-    .imagens img {
-      width: 100%;
-      height: 190px;
-      object-fit: cover;
-      display: block;
-    }
-
-    .imagens figcaption {
-      padding: 14px 16px;
-      font-size: 0.95rem;
-      color: #bbb;
-      text-align: center;
-    }
-
-    footer {
-      text-align: center;
-      padding: 28px;
-      background: #1a1a1a;
-      color: #777;
-      border-top: 1px solid #333;
-      margin-top: 30px;
-    }
-
-    .destaque {
-      color: #cf9fff;
-      font-weight: 500;
-    }
-  </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+  <title>Programação e Jogos</title>
 </head>
 <body>
-
-  <header>
-    <h1>Programação & Desenvolvimento de Jogos</h1>
-    <nav>
-      <a href="#">Início</a>
-      <a href="#linguagens">Linguagens</a>
-      <a href="#motores">Motores</a>
-      <a href="#galeria">Inspiração</a>
-    </nav>
-  </header>
-
-  <main>
-
-    <section class="intro">
-      <h2>Oi, tudo bem?</h2>
-      <p>
-        Eu sou a <span class="destaque">Valquiria</span> e esse é o meu projetinho sobre programação de jogos.
-        Sempre achei incrível como um monte de linhas de código consegue criar mundos inteiros, personagens e aventuras.
-      </p>
-      <p>
-        Aqui eu reuni um pouco do que estou aprendendo sobre as linguagens e ferramentas mais usadas para criar jogos.
-        Espero que você goste e se inspire também!
-      </p>
-    </section>
-
-    <section class="linguagens" id="linguagens">
-      <h2>Linguagens que mais aparecem nos jogos</h2>
-      <p>
-        Cada linguagem tem seu jeitinho. Umas são mais amigáveis para quem está começando, outras são bem poderosas para jogos grandes.
-      </p>
-
-      <div class="cards">
-        <article class="card">
-          <h3>C#</h3>
-          <p>É a linguagem principal do Unity. Muita gente começa por ela porque é organizada e tem bastante material de estudo.</p>
-        </article>
-        <article class="card">
-          <h3>C++</h3>
-          <p>Uma linguagem bem poderosa. É bastante usada no Unreal Engine e em jogos que precisam de alto desempenho.</p>
-        </article>
-        <article class="card">
-          <h3>GDScript</h3>
-          <p>Linguagem do Godot. Parece um pouco com Python e é bem gostosa de aprender, especialmente para quem está começando.</p>
-        </article>
-        <article class="card">
-          <h3>JavaScript</h3>
-          <p>Muito usada em jogos que rodam direto no navegador. Com ela dá para criar jogos 2D bem legais usando HTML5.</p>
-        </article>
-      </div>
-    </section>
-
-    <section class="motores" id="motores">
-      <h2>Motores de jogos que eu conheci</h2>
-      <p>
-        Os motores são tipo a “casa” onde a gente constrói o jogo. Cada um tem suas vantagens.
-      </p>
-
-      <div class="cards">
-        <article class="card">
-          <h3>Unity</h3>
-          <p>Um dos mais populares do mundo. Tem uma comunidade gigante e serve tanto para jogos 2D quanto 3D.</p>
-        </article>
-        <article class="card">
-          <h3>Unreal Engine</h3>
-          <p>Famoso pelos gráficos lindos. Muitos jogos grandes usam ele. É impressionante o que dá para fazer.</p>
-        </article>
-        <article class="card">
-          <h3>Godot</h3>
-          <p>Totalmente gratuito e de código aberto. Eu gosto bastante dele porque é leve e bem acessível para iniciantes.</p>
-        </article>
-        <article class="card">
-          <h3>Construct / GameMaker</h3>
-          <p>Ótimos para quem quer criar jogos 2D de forma mais visual, sem precisar escrever tanto código no começo.</p>
-        </article>
-      </div>
-    </section>
-
-    <!-- GALERIA COM IMAGENS MAIS REALISTAS -->
-    <section class="galeria" id="galeria">
-      <h2>Um pouco de inspiração visual</h2>
-      <p>
-        Separei algumas fotos reais que passam a vibe de quem passa horas programando e criando jogos.
-        É o tipo de imagem que a gente salva no Pinterest, né?
-      </p>
-
-      <div class="imagens">
-
-        <figure>
-          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTxjQVD-BNfouK3KdB4PBp7_UyUKLWokPHE5NLaV8LSSRnZA0QcaVvG2Rk&s=10" alt="Código na tela do computador">
-          <figcaption>A tela cheia de código que a gente tanto ama</figcaption>
-        </figure>
-
-        <figure>
-          <img src="https://preview.redd.it/first-pc-build-which-monitor-fits-best-at-a-dark-room-v0-3alf0pvflffg1.jpg?width=640&crop=smart&auto=webp&s=ca3eccc2fd7c80555418958ceb9673a82e8d3ea1" alt="Setup de PC gamer em quarto escuro">
-          <figcaption>Setup dark e aconchegante</figcaption>
-        </figure>
-
-        <figure>
-          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQGphXdt0ED8Bq0YdpNO6zqwiaIu_MdxN65dUuTNVzd_ykTKIoaP9eWDc0&s=10" alt="Pessoa programando no notebook">
-          <figcaption>Concentração total na frente do código</figcaption>
-        </figure>
-
-        <figure>
-          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSN9s30Eo2jIDtYS-iJyYk_-vcviVesXx0N0fhjFfALfdhwCQqBRbJBTco&s=10" alt="Notebook aberto com código">
-          <figcaption>Aquelas noites estudando e testando</figcaption>
-        </figure>
-
-        <figure>
-          <img src="https://images.unsplash.com/photo-1743090660977-babf07732432?fm=jpg&q=60&w=3000&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Tela de código escuro">
-          <figcaption>Tema dark no editor de código</figcaption>
-        </figure>
-
-        <figure>
-          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSmrCeZvmx0Yhhu28jrfSVjpY-aQXR_w01hYGb5BcdPdso_o_IRvhuJV7pT&s=10" alt="Pessoa digitando código">
-          <figcaption>O momento em que tudo começa a fazer sentido</figcaption>
-        </figure>
-
-      </div>
-    </section>
-
-  </main>
-
-  <footer>
-    Projeto feito com carinho pela Valquiria • Tema: Programação e Jogos
-  </footer>
-
+  <header>
+    <h1>Programação & Desenvolvimento de Jogos</h1>
+    <nav>
+      <a href="#">Início</a>
+      <a href="#">Linguagens</a>
+      <a href="#">Motores de Jogo</a>
+      <a href="#">Projetos</a>
+    </nav>
+  </header>
+  <main>
+    <section class="intro">
+      <h2>Bem-vindo ao mundo da programação de jogos</h2>
+      <p>
+        A programação é a base de todos os jogos digitais.
+        Aqui você vai conhecer as principais linguagens e ferramentas usadas para criar jogos.
+      </p>
+    </section>
+    <section class="linguagens">
+      <h2>Linguagens mais usadas em jogos</h2>
+      <div class="cards">
+        <article class="card">
+          <h3>C#</h3>
+          <p>Principal linguagem do Unity. Muito usada em jogos 2D e 3D.</p>
+        </article>
+        <article class="card">
+          <h3>C++</h3>
+          <p>Linguagem poderosa usada no Unreal Engine e em jogos de alto desempenho.</p>
+        </article>
+        <article class="card">
+          <h3>GDScript / C#</h3>
+          <p>Usadas no Godot, um motor de jogos gratuito e open source.</p>
+        </article>
+        <article class="card">
+          <h3>JavaScript</h3>
+          <p>Muito usada em jogos web (HTML5) e com frameworks como Phaser.</p>
+        </article>
+      </div>
+    </section>
+    <section class="motores">
+      <h2>Principais Motores de Jogos</h2>
+      <div class="cards">
+        <article class="card">
+          <h3>Unity</h3>
+          <p>Um dos motores mais populares do mundo. Ideal para iniciantes e profissionais.</p>
+        </article>
+        <article class="card">
+          <h3>Unreal Engine</h3>
+          <p>Conhecido por gráficos de alta qualidade e usado em jogos AAA.</p>
+        </article>
+        <article class="card">
+          <h3>Godot</h3>
+          <p>Totalmente gratuito e open source. Excelente para quem está começando.</p>
+        </article>
+        <article class="card">
+          <h3>Construct / GameMaker</h3>
+          <p>Ótimos para criar jogos 2D de forma mais visual (menos código).</p>
+        </article>
+      </div>
+    </section>
+  </main>
+  <footer>
+    Projeto feito pela Valquiria • Tema: Programação e Jogos
+  </footer>
 </body>
 </html>
