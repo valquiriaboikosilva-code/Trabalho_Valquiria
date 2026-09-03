@@ -1,10 +1,10 @@
 
- <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Programação e Jogos - Cemitério</title>
+  <title>Programação e Jogos</title>
   <style>
     * {
       margin: 0;
@@ -16,12 +16,12 @@
       font-family: 'Segoe UI', Arial, sans-serif;
       background: #0d0d0d;
       color: #e0e0e0;
-      line-height: 1.6;
+      line-height: 1.7;
     }
 
     header {
       background: #1a1a1a;
-      padding: 20px;
+      padding: 25px 20px;
       text-align: center;
       border-bottom: 2px solid #4a0080;
     }
@@ -29,13 +29,13 @@
     header h1 {
       color: #bb86fc;
       margin-bottom: 15px;
-      font-size: 1.8rem;
+      font-size: 1.9rem;
     }
 
     nav a {
       color: #ccc;
       text-decoration: none;
-      margin: 0 15px;
+      margin: 0 14px;
       font-weight: 500;
       transition: color 0.3s;
     }
@@ -47,36 +47,42 @@
     main {
       max-width: 1000px;
       margin: 0 auto;
-      padding: 30px 20px;
+      padding: 40px 20px;
     }
 
     section {
-      margin-bottom: 50px;
+      margin-bottom: 60px;
     }
 
     h2 {
       color: #bb86fc;
-      margin-bottom: 20px;
+      margin-bottom: 18px;
       border-left: 4px solid #bb86fc;
-      padding-left: 12px;
+      padding-left: 14px;
+      font-size: 1.5rem;
+    }
+
+    p {
+      color: #cfcfcf;
+      margin-bottom: 16px;
     }
 
     .cards {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 20px;
+      gap: 22px;
     }
 
     .card {
       background: #1e1e1e;
       border: 1px solid #333;
-      border-radius: 10px;
-      padding: 20px;
-      transition: transform 0.2s, border-color 0.2s;
+      border-radius: 12px;
+      padding: 22px;
+      transition: transform 0.25s, border-color 0.25s;
     }
 
     .card:hover {
-      transform: translateY(-5px);
+      transform: translateY(-6px);
       border-color: #bb86fc;
     }
 
@@ -85,65 +91,59 @@
       margin-bottom: 10px;
     }
 
-    .jogo {
-      background: #111;
-      border: 2px solid #4a0080;
+    /* ===== GALERIA DE IMAGENS ===== */
+    .galeria {
+      background: #141414;
+      border: 1px solid #333;
+      border-radius: 14px;
+      padding: 30px 25px;
+    }
+
+    .imagens {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 24px;
+      margin-top: 25px;
+    }
+
+    .imagens figure {
+      background: #1e1e1e;
       border-radius: 12px;
-      padding: 25px;
-      text-align: center;
+      overflow: hidden;
+      border: 1px solid #333;
+      transition: transform 0.25s;
     }
 
-    .jogo p {
-      margin-bottom: 15px;
-      color: #aaa;
+    .imagens figure:hover {
+      transform: translateY(-5px);
     }
 
-    #gameCanvas {
-      background: #0a0a12;
-      border: 3px solid #333;
-      border-radius: 8px;
+    .imagens img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
       display: block;
-      margin: 0 auto 20px;
-      max-width: 100%;
-      box-shadow: 0 0 30px rgba(100, 0, 150, 0.3);
     }
 
-    .controles {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      gap: 30px;
-      flex-wrap: wrap;
-    }
-
-    #score {
-      font-size: 1.4rem;
-      color: #bb86fc;
-      font-weight: bold;
-    }
-
-    #startBtn {
-      background: #4a0080;
-      color: white;
-      border: none;
-      padding: 12px 28px;
-      font-size: 1rem;
-      border-radius: 6px;
-      cursor: pointer;
-      transition: background 0.3s;
-    }
-
-    #startBtn:hover {
-      background: #6a00b0;
+    .imagens figcaption {
+      padding: 14px 16px;
+      font-size: 0.95rem;
+      color: #bbb;
+      text-align: center;
     }
 
     footer {
       text-align: center;
-      padding: 25px;
+      padding: 28px;
       background: #1a1a1a;
       color: #777;
       border-top: 1px solid #333;
-      margin-top: 40px;
+      margin-top: 30px;
+    }
+
+    .destaque {
+      color: #cf9fff;
+      font-weight: 500;
     }
   </style>
 </head>
@@ -153,538 +153,133 @@
     <h1>Programação & Desenvolvimento de Jogos</h1>
     <nav>
       <a href="#">Início</a>
-      <a href="#">Linguagens</a>
-      <a href="#">Motores de Jogo</a>
-      <a href="#jogo">Jogar</a>
+      <a href="#linguagens">Linguagens</a>
+      <a href="#motores">Motores</a>
+      <a href="#galeria">Inspiração</a>
     </nav>
   </header>
 
   <main>
+
+    <!-- INTRODUÇÃO HUMANIZADA -->
     <section class="intro">
-      <h2>Bem-vindo ao mundo da programação de jogos</h2>
+      <h2>Oi, tudo bem?</h2>
       <p>
-        A programação é a base de todos os jogos digitais. 
-        Aqui você vai conhecer as principais linguagens e ferramentas usadas para criar jogos.
+        Eu sou a <span class="destaque">Valquiria</span> e esse é o meu projetinho sobre programação de jogos.
+        Sempre achei incrível como um monte de linhas de código consegue criar mundos inteiros, personagens e aventuras.
+      </p>
+      <p>
+        Aqui eu reuni um pouco do que estou aprendendo sobre as linguagens e ferramentas mais usadas para criar jogos.
+        Espero que você goste e se inspire também!
       </p>
     </section>
 
-    <section class="linguagens">
-      <h2>Linguagens mais usadas em jogos</h2>
+    <!-- LINGUAGENS -->
+    <section class="linguagens" id="linguagens">
+      <h2>Linguagens que mais aparecem nos jogos</h2>
+      <p>
+        Cada linguagem tem seu jeitinho. Umas são mais amigáveis para quem está começando, outras são bem poderosas para jogos grandes.
+      </p>
+
       <div class="cards">
         <article class="card">
           <h3>C#</h3>
-          <p>Principal linguagem do Unity. Muito usada em jogos 2D e 3D.</p>
+          <p>É a linguagem principal do Unity. Muita gente começa por ela porque é organizada e tem bastante material de estudo.</p>
         </article>
+
         <article class="card">
           <h3>C++</h3>
-          <p>Linguagem poderosa usada no Unreal Engine e em jogos de alto desempenho.</p>
+          <p>Uma linguagem bem poderosa. É bastante usada no Unreal Engine e em jogos que precisam de alto desempenho.</p>
         </article>
+
         <article class="card">
-          <h3>GDScript / C#</h3>
-          <p>Usadas no Godot, um motor de jogos gratuito e open source.</p>
+          <h3>GDScript</h3>
+          <p>Linguagem do Godot. Parece um pouco com Python e é bem gostosa de aprender, especialmente para quem está começando.</p>
         </article>
+
         <article class="card">
           <h3>JavaScript</h3>
-          <p>Muito usada em jogos web (HTML5) e com frameworks como Phaser.</p>
+          <p>Muito usada em jogos que rodam direto no navegador. Com ela dá para criar jogos 2D bem legais usando HTML5.</p>
         </article>
       </div>
     </section>
 
-    <section class="motores">
-      <h2>Principais Motores de Jogos</h2>
+    <!-- MOTORES -->
+    <section class="motores" id="motores">
+      <h2>Motores de jogos que eu conheci</h2>
+      <p>
+        Os motores são tipo a “casa” onde a gente constrói o jogo. Cada um tem suas vantagens.
+      </p>
+
       <div class="cards">
         <article class="card">
           <h3>Unity</h3>
-          <p>Um dos motores mais populares do mundo. Ideal para iniciantes e profissionais.</p>
+          <p>Um dos mais populares do mundo. Tem uma comunidade gigante e serve tanto para jogos 2D quanto 3D.</p>
         </article>
+
         <article class="card">
           <h3>Unreal Engine</h3>
-          <p>Conhecido por gráficos de alta qualidade e usado em jogos AAA.</p>
+          <p>Famoso pelos gráficos lindos. Muitos jogos grandes usam ele. É impressionante o que dá para fazer.</p>
         </article>
+
         <article class="card">
           <h3>Godot</h3>
-          <p>Totalmente gratuito e open source. Excelente para quem está começando.</p>
+          <p>Totalmente gratuito e de código aberto. Eu gosto bastante dele porque é leve e bem acessível para iniciantes.</p>
         </article>
+
         <article class="card">
           <h3>Construct / GameMaker</h3>
-          <p>Ótimos para criar jogos 2D de forma mais visual (menos código).</p>
+          <p>Ótimos para quem quer criar jogos 2D de forma mais visual, sem precisar escrever tanto código no começo.</p>
         </article>
       </div>
     </section>
 
-    <!-- JOGO -->
-    <section class="jogo" id="jogo">
-      <h2>Jogo: Fuga do Cemitério</h2>
+    <!-- GALERIA DE IMAGENS -->
+    <section class="galeria" id="galeria">
+      <h2>Um pouco de inspiração visual</h2>
       <p>
-        Use a <strong>barra de espaço</strong> para pular sobre as lápides.<br>
-        Fuja do <strong>zumbi</strong> que está te perseguindo!
+        Separei algumas imagens que representam bem o clima de quem programa e cria jogos.
+        É daí que vem a motivação de continuar aprendendo!
       </p>
 
-      <canvas id="gameCanvas" width="800" height="400"></canvas>
+      <div class="imagens">
+        <figure>
+          <img src="https://images.unsplash.com/photo-1461749280684-dccba630e2f6?w=600&h=400&fit=crop" alt="Tela com código de programação">
+          <figcaption>Onde tudo começa: o código</figcaption>
+        </figure>
 
-      <div class="controles">
-        <div>Pontuação: <span id="score">0</span></div>
-        <button id="startBtn">Iniciar / Reiniciar</button>
+        <figure>
+          <img src="https://images.unsplash.com/photo-1552820728-8b83bb6b773f?w=600&h=400&fit=crop" alt="Controle de videogame">
+          <figcaption>O resultado final que a gente ama</figcaption>
+        </figure>
+
+        <figure>
+          <img src="https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=600&h=400&fit=crop" alt="Pessoa programando no computador">
+          <figcaption>Horas de dedicação e criatividade</figcaption>
+        </figure>
+
+        <figure>
+          <img src="https://images.unsplash.com/photo-1542751371-adc38448a05e?w=600&h=400&fit=crop" alt="Setup gamer com luzes">
+          <figcaption>Ambiente de quem ama jogos e tecnologia</figcaption>
+        </figure>
+
+        <figure>
+          <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=600&h=400&fit=crop" alt="Notebook com código na tela">
+          <figcaption>Aprender um pouco todos os dias</figcaption>
+        </figure>
+
+        <figure>
+          <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=600&h=400&fit=crop" alt="Pessoas colaborando em projeto de tecnologia">
+          <figcaption>Programar também pode ser em equipe</figcaption>
+        </figure>
       </div>
     </section>
+
   </main>
 
   <footer>
-    Projeto feito pela Valquiria • Tema: Programação e Jogos
+    Projeto feito com carinho pela Valquiria • Tema: Programação e Jogos
   </footer>
 
-  <script>
-    const canvas = document.getElementById('gameCanvas');
-    const ctx = canvas.getContext('2d');
-    const scoreEl = document.getElementById('score');
-    const startBtn = document.getElementById('startBtn');
-
-    let gameRunning = false;
-    let score = 0;
-    let frame = 0;
-    let gravidade = 0.65;
-    let chao = canvas.height - 70;
-
-    // ===== JOGADOR (pessoa 2D) =====
-    const player = {
-      x: 140,
-      y: chao,
-      width: 36,
-      height: 55,
-      velY: 0,
-      pulando: false,
-      frameAnim: 0
-    };
-
-    // ===== ZUMBI (perseguindo) =====
-    const zumbi = {
-      x: 20,
-      y: chao,
-      width: 40,
-      height: 58,
-      velocidade: 1.8,
-      frameAnim: 0
-    };
-
-    // ===== LÁPIDES =====
-    let lapides = [];
-
-    function criarLapide() {
-      const tipo = Math.floor(Math.random() * 3); // 0, 1 ou 2 (estilos diferentes)
-      const altura = 55 + Math.random() * 35;
-
-      lapides.push({
-        x: canvas.width + 20,
-        y: chao - altura,
-        width: 48,
-        height: altura,
-        tipo: tipo,
-        passou: false
-      });
-    }
-
-    // ==================== DESENHOS ====================
-
-    function desenharFundo() {
-      // Céu noturno
-      const grad = ctx.createLinearGradient(0, 0, 0, canvas.height);
-      grad.addColorStop(0, '#050510');
-      grad.addColorStop(1, '#0f0a1a');
-      ctx.fillStyle = grad;
-      ctx.fillRect(0, 0, canvas.width, canvas.height);
-
-      // Estrelas
-      ctx.fillStyle = '#ffffff';
-      for (let i = 0; i < 50; i++) {
-        const x = (i * 47 + frame * 0.05) % canvas.width;
-        const y = (i * 31) % (canvas.height - 100);
-        ctx.globalAlpha = 0.4 + Math.sin(frame * 0.02 + i) * 0.3;
-        ctx.beginPath();
-        ctx.arc(x, y, 1.2, 0, Math.PI * 2);
-        ctx.fill();
-      }
-      ctx.globalAlpha = 1;
-
-      // Chao
-      ctx.fillStyle = '#1a1520';
-      ctx.fillRect(0, chao, canvas.width, canvas.height - chao);
-
-      // Grama escura
-      ctx.fillStyle = '#0d1a0d';
-      ctx.fillRect(0, chao, canvas.width, 10);
-
-      // Névoa no chão
-      ctx.fillStyle = 'rgba(40, 30, 60, 0.25)';
-      ctx.fillRect(0, chao - 30, canvas.width, 40);
-    }
-
-    // ----- JOGADOR (pessoa 2D) -----
-    function desenharPlayer() {
-      const x = player.x;
-      const y = player.y;
-      const anim = Math.floor(frame / 6) % 4;
-
-      // Sombra
-      ctx.fillStyle = 'rgba(0,0,0,0.3)';
-      ctx.beginPath();
-      ctx.ellipse(x + 18, chao + 5, 20, 6, 0, 0, Math.PI * 2);
-      ctx.fill();
-
-      // Pernas (animação de corrida)
-      ctx.strokeStyle = '#2c5aa0';
-      ctx.lineWidth = 5;
-      ctx.lineCap = 'round';
-
-      if (anim === 0 || anim === 2) {
-        // perna 1
-        ctx.beginPath();
-        ctx.moveTo(x + 18, y + 32);
-        ctx.lineTo(x + 10, y + 52);
-        ctx.stroke();
-        // perna 2
-        ctx.beginPath();
-        ctx.moveTo(x + 18, y + 32);
-        ctx.lineTo(x + 28, y + 52);
-        ctx.stroke();
-      } else {
-        ctx.beginPath();
-        ctx.moveTo(x + 18, y + 32);
-        ctx.lineTo(x + 6, y + 50);
-        ctx.stroke();
-        ctx.beginPath();
-        ctx.moveTo(x + 18, y + 32);
-        ctx.lineTo(x + 30, y + 50);
-        ctx.stroke();
-      }
-
-      // Corpo
-      ctx.fillStyle = '#3a7bd5';
-      ctx.fillRect(x + 10, y + 12, 16, 24);
-
-      // Braço
-      ctx.strokeStyle = '#f0c8a0';
-      ctx.lineWidth = 4;
-      ctx.beginPath();
-      ctx.moveTo(x + 12, y + 16);
-      ctx.lineTo(x + 2, y + 28);
-      ctx.stroke();
-
-      // Cabeça
-      ctx.fillStyle = '#f0c8a0';
-      ctx.beginPath();
-      ctx.arc(x + 18, y + 6, 9, 0, Math.PI * 2);
-      ctx.fill();
-
-      // Cabelo
-      ctx.fillStyle = '#2a1a0a';
-      ctx.beginPath();
-      ctx.arc(x + 18, y + 3, 9, Math.PI, 0);
-      ctx.fill();
-
-      // Olho
-      ctx.fillStyle = '#111';
-      ctx.beginPath();
-      ctx.arc(x + 21, y + 5, 1.8, 0, Math.PI * 2);
-      ctx.fill();
-    }
-
-    // ----- ZUMBI -----
-    function desenharZumbi() {
-      const x = zumbi.x;
-      const y = zumbi.y;
-      const anim = Math.floor(frame / 8) % 4;
-
-      // Sombra
-      ctx.fillStyle = 'rgba(0,0,0,0.35)';
-      ctx.beginPath();
-      ctx.ellipse(x + 20, chao + 5, 22, 7, 0, 0, Math.PI * 2);
-      ctx.fill();
-
-      // Pernas (mancando)
-      ctx.strokeStyle = '#3d5c3d';
-      ctx.lineWidth = 6;
-      ctx.lineCap = 'round';
-
-      if (anim === 0 || anim === 2) {
-        ctx.beginPath();
-        ctx.moveTo(x + 18, y + 34);
-        ctx.lineTo(x + 8, y + 55);
-        ctx.stroke();
-        ctx.beginPath();
-        ctx.moveTo(x + 22, y + 34);
-        ctx.lineTo(x + 32, y + 52);
-        ctx.stroke();
-      } else {
-        ctx.beginPath();
-        ctx.moveTo(x + 18, y + 34);
-        ctx.lineTo(x + 5, y + 53);
-        ctx.stroke();
-        ctx.beginPath();
-        ctx.moveTo(x + 22, y + 34);
-        ctx.lineTo(x + 34, y + 54);
-        ctx.stroke();
-      }
-
-      // Corpo rasgado
-      ctx.fillStyle = '#4a704a';
-      ctx.fillRect(x + 10, y + 14, 20, 26);
-
-      // Manchas de sangue/sujeira
-      ctx.fillStyle = '#2d4a2d';
-      ctx.fillRect(x + 12, y + 20, 8, 6);
-      ctx.fillRect(x + 20, y + 28, 7, 5);
-
-      // Braços esticados para frente
-      ctx.strokeStyle = '#6b8f6b';
-      ctx.lineWidth = 5;
-      ctx.beginPath();
-      ctx.moveTo(x + 28, y + 18);
-      ctx.lineTo(x + 48, y + 22);
-      ctx.stroke();
-      ctx.beginPath();
-      ctx.moveTo(x + 28, y + 24);
-      ctx.lineTo(x + 50, y + 30);
-      ctx.stroke();
-
-      // Cabeça
-      ctx.fillStyle = '#6b8f6b';
-      ctx.beginPath();
-      ctx.arc(x + 20, y + 7, 11, 0, Math.PI * 2);
-      ctx.fill();
-
-      // Olhos vermelhos
-      ctx.fillStyle = '#ff2222';
-      ctx.beginPath();
-      ctx.arc(x + 16, y + 5, 2.5, 0, Math.PI * 2);
-      ctx.arc(x + 25, y + 5, 2.5, 0, Math.PI * 2);
-      ctx.fill();
-
-      // Boca
-      ctx.strokeStyle = '#222';
-      ctx.lineWidth = 2;
-      ctx.beginPath();
-      ctx.moveTo(x + 15, y + 12);
-      ctx.lineTo(x + 26, y + 12);
-      ctx.stroke();
-    }
-
-    // ----- LÁPIDES MAIS REALISTAS -----
-    function desenharLapides() {
-      lapides.forEach(l => {
-        const x = l.x;
-        const y = l.y;
-        const w = l.width;
-        const h = l.height;
-
-        // Sombra da lápide
-        ctx.fillStyle = 'rgba(0,0,0,0.4)';
-        ctx.fillRect(x + 6, chao - 4, w - 4, 8);
-
-        if (l.tipo === 0) {
-          // Lápide clássica com topo arredondado
-          ctx.fillStyle = '#6a6a6a';
-          ctx.beginPath();
-          ctx.moveTo(x, y + 15);
-          ctx.lineTo(x, y + h);
-          ctx.lineTo(x + w, y + h);
-          ctx.lineTo(x + w, y + 15);
-          ctx.arc(x + w/2, y + 15, w/2, 0, Math.PI, true);
-          ctx.fill();
-
-          // Borda mais clara
-          ctx.strokeStyle = '#8a8a8a';
-          ctx.lineWidth = 2;
-          ctx.stroke();
-
-          // Cruz
-          ctx.fillStyle = '#555';
-          ctx.fillRect(x + w/2 - 3, y - 18, 6, 28);
-          ctx.fillRect(x + w/2 - 11, y - 8, 22, 6);
-
-        } else if (l.tipo === 1) {
-          // Lápide retangular com base
-          ctx.fillStyle = '#5c5c5c';
-          ctx.fillRect(x, y, w, h);
-
-          // Topo decorado
-          ctx.fillStyle = '#707070';
-          ctx.fillRect(x - 4, y, w + 8, 12);
-
-          // Inscrição (linhas)
-          ctx.strokeStyle = '#444';
-          ctx.lineWidth = 1.5;
-          ctx.beginPath();
-          ctx.moveTo(x + 10, y + 25);
-          ctx.lineTo(x + w - 10, y + 25);
-          ctx.moveTo(x + 12, y + 35);
-          ctx.lineTo(x + w - 12, y + 35);
-          ctx.moveTo(x + 15, y + 45);
-          ctx.lineTo(x + w - 15, y + 45);
-          ctx.stroke();
-
-        } else {
-          // Lápide quebrada / antiga
-          ctx.fillStyle = '#4a4a4a';
-          ctx.beginPath();
-          ctx.moveTo(x, y + 10);
-          ctx.lineTo(x + 5, y);
-          ctx.lineTo(x + w - 8, y + 5);
-          ctx.lineTo(x + w, y + 15);
-          ctx.lineTo(x + w, y + h);
-          ctx.lineTo(x, y + h);
-          ctx.closePath();
-          ctx.fill();
-
-          // Rachadura
-          ctx.strokeStyle = '#333';
-          ctx.lineWidth = 1.5;
-          ctx.beginPath();
-          ctx.moveTo(x + 18, y + 15);
-          ctx.lineTo(x + 22, y + 40);
-          ctx.lineTo(x + 15, y + 55);
-          ctx.stroke();
-
-          // Musgo
-          ctx.fillStyle = '#2d4a2d';
-          ctx.fillRect(x + 3, y + h - 18, 12, 10);
-          ctx.fillRect(x + w - 15, y + h - 12, 10, 8);
-        }
-
-        // Base da lápide (terra)
-        ctx.fillStyle = '#3a2f2f';
-        ctx.fillRect(x - 5, chao - 8, w + 10, 10);
-      });
-    }
-
-    // ==================== LÓGICA ====================
-
-    function atualizar() {
-      if (!gameRunning) return;
-
-      frame++;
-
-      // Gravidade do jogador
-      player.velY += gravidade;
-      player.y += player.velY;
-
-      if (player.y >= chao - player.height) {
-        player.y = chao - player.height;
-        player.velY = 0;
-        player.pulando = false;
-      }
-
-      // Zumbi perseguidor (fica mais rápido com o tempo)
-      zumbi.velocidade = 1.6 + Math.min(score * 0.03, 2.5);
-      zumbi.x += zumbi.velocidade * 0.15; // avança devagar
-
-      // Se o zumbi alcançar o jogador
-      if (zumbi.x + zumbi.width - 10 >= player.x) {
-        gameOver();
-      }
-
-      // Criar lápides
-      if (frame % 85 === 0) {
-        criarLapide();
-      }
-
-      // Mover e verificar lápides
-      for (let i = lapides.length - 1; i >= 0; i--) {
-        lapides[i].x -= 5.5;
-
-        // Pontuação
-        if (!lapides[i].passou && lapides[i].x + lapides[i].width < player.x) {
-          lapides[i].passou = true;
-          score++;
-          scoreEl.textContent = score;
-        }
-
-        // Remover fora da tela
-        if (lapides[i].x + lapides[i].width < 0) {
-          lapides.splice(i, 1);
-          continue;
-        }
-
-        // Colisão com lápide
-        if (
-          player.x < lapides[i].x + lapides[i].width - 8 &&
-          player.x + player.width > lapides[i].x + 8 &&
-          player.y < lapides[i].y + lapides[i].height &&
-          player.y + player.height > lapides[i].y + 5
-        ) {
-          gameOver();
-        }
-      }
-
-      // Manter o zumbi sempre atrás (visual)
-      if (zumbi.x > player.x - 90) {
-        zumbi.x = player.x - 90;
-      }
-    }
-
-    function desenhar() {
-      desenharFundo();
-      desenharLapides();
-      desenharZumbi();
-      desenharPlayer();
-
-      if (!gameRunning && score > 0) {
-        ctx.fillStyle = 'rgba(0, 0, 0, 0.75)';
-        ctx.fillRect(0, 0, canvas.width, canvas.height);
-
-        ctx.fillStyle = '#ff4444';
-        ctx.font = 'bold 42px Arial';
-        ctx.textAlign = 'center';
-        ctx.fillText('GAME OVER', canvas.width / 2, canvas.height / 2 - 25);
-
-        ctx.fillStyle = '#ffffff';
-        ctx.font = '22px Arial';
-        ctx.fillText('Pontuação: ' + score, canvas.width / 2, canvas.height / 2 + 15);
-        ctx.font = '16px Arial';
-        ctx.fillText('Pressione ESPAÇO ou clique em Reiniciar', canvas.width / 2, canvas.height / 2 + 50);
-      }
-    }
-
-    function loop() {
-      atualizar();
-      desenhar();
-      requestAnimationFrame(loop);
-    }
-
-    function gameOver() {
-      gameRunning = false;
-    }
-
-    function iniciarJogo() {
-      gameRunning = true;
-      score = 0;
-      scoreEl.textContent = 0;
-      frame = 0;
-      lapides = [];
-      player.y = chao - player.height;
-      player.velY = 0;
-      player.pulando = false;
-      zumbi.x = 15;
-      zumbi.velocidade = 1.8;
-    }
-
-    // Controles
-    document.addEventListener('keydown', (e) => {
-      if (e.code === 'Space') {
-        e.preventDefault();
-        if (gameRunning && !player.pulando) {
-          player.velY = -14;
-          player.pulando = true;
-        }
-        if (!gameRunning) {
-          iniciarJogo();
-        }
-      }
-    });
-
-    startBtn.addEventListener('click', iniciarJogo);
-
-    // Inicia o loop de desenho
-    loop();
-  </script>
 </body>
 </html>
